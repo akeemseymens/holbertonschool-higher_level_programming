@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-def islower(str):
+def uppercase(str):
     case = 0
     for ltr in str:
         if ord(ltr) >= ord('a') and ord(ltr) <= ord('z'):
