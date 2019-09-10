@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 def islower(str):
-    for ltr in str
+    case = 0
+    for ltr in str:
         if ord(ltr) >= ord('a') and ord(ltr) <= ord('z'):
             case = 32
         else:
