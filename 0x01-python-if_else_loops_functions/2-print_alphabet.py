@@ -1,3 +1,3 @@
 #!/usr/bin/python3
-import string
-print('{}'.format(string.ascii_lowercase))
+for alphbt_lwr in range(ord('a'), ord('z')+1):
+    print("{:c}".format(alphbt_lwr), end="")
