@@ -32,5 +32,5 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
 
-	return (is_Palindrome_helper(&head, head));
+	return (is_Palindrome_helper(&temp, temp));
 }
