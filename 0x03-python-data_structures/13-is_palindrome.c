@@ -9,28 +9,26 @@
 
 int is_Palindrome_helper(listint_t **left, listint_t *right)
 {
-	int check;
+	int result;
 
 	if (right == NULL)
 		return (1);
-	check = is_Palindrome_helper(left, right->next);
-	if (check == 0)
+	result = is_Palindrome_helper(left, right->next);
+	if (result == 0)
 		return (0);
-	if (right->n == (*left)->n)
+	if ((*left)->n == right->n)
 	{
-		(*left) = (*left)->next;
+		*left = (*left)->next;
 		return (1);
 	}
 	return (0);
 }
 /**
- * is_palindrome- recursively calls the function is_Palindrome
+ * is_palindrome- recursively calls the function is_Palindrome_helper
  * @head: head of node
  *Return: 0 on success
  **/
 int is_palindrome(listint_t **head)
 {
-	listint_t *temp = *head;
-
-	return (is_Palindrome_helper(&temp, temp));
+	return (is_Palindrome_helper(&head, head));
 }
