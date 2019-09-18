@@ -30,5 +30,7 @@ int is_Palindrome_helper(listint_t **left, listint_t *right)
  **/
 int is_palindrome(listint_t **head)
 {
+	listint_t *temp = *head;
+
 	return (is_Palindrome_helper(&head, head));
 }
