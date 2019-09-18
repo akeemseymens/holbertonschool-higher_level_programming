@@ -7,7 +7,7 @@
  *Return: 0 on success
  **/
 
-int is_Palindrome_helper(listint_t **left, listint_t *right)
+_Bool is_Palindrome_helper(listint_t **left, listint_t *right)
 {
 	int check;
 
@@ -32,5 +32,5 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *temp = *head;
 
-	return (is_Palin(&temp, temp));
+	return (is_Palindrome_helper(&temp, temp));
 }
