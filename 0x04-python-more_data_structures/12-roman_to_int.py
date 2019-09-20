@@ -13,7 +13,7 @@ def roman_to_int(roman_string):
         "V": 5,
         "I": 1}
     for char in reversed(roman_string):
-        if dic[char] < totl:
+        if dic[char] < total:
             total -= dic[char]
         else:
             total += dic[char]
