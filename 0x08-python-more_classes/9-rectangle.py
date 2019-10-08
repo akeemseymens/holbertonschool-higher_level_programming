@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class Rectangle:
     """Represents a rectangle."""
     number_of_instances = 0
@@ -12,21 +14,16 @@ class Rectangle:
 
     def __str__(self):
         """Print the rectangle."""
-        string = ''
-        if self.__width == 0 or self.__height == 0:
-            return string
-        string += ((str(self.print_symbol) * self.__width + '\n') *
-                   self.__height)
-        return string[:-1]
+        ln = str(self.print_symbol) * self.width + '\n'
+        return (self.height * ln).strip()
 
     def __repr__(self):
         """Return a string representation of the rectangle."""
-        return ('Rectangle(' + str(self.__width) + ', ' +
-                str(self.__height) + ')')
+        return 'Rectangle({:d}, {:d})'.format(self.width, self.height)
 
     def __del__(self):
         """Delete a rectangle."""
-        print('Bye rectangle...')
+        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
 
     @property
