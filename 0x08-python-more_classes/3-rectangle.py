@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class Rectangle:
     """Represents a rectangle."""
     def __init__(self, width=0, height=0):
@@ -8,8 +10,7 @@ class Rectangle:
 
     def __str__(self):
         """Print the rectangle."""
-        string = ('#' * self.__width + '\n') * self.__height
-        return string[:-1]
+        return (self.height * ('#' * self.width + '\n')).strip()
 
     @property
     def width(self):
@@ -20,9 +21,9 @@ class Rectangle:
     def width(self, value):
         """Setting the width."""
         if not isinstance(value, int):
-            raise TypeError('width must be an integer')
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError('width must be >= 0')
+            raise ValueError("width must be >= 0")
         self.__width = value
 
     @property
@@ -34,9 +35,9 @@ class Rectangle:
     def height(self, value):
         """Setting the height."""
         if not isinstance(value, int):
-            raise TypeError('height must be an integer')
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise ValueError('height must be >= 0')
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     def area(self):
