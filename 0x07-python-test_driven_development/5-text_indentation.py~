@@ -1,0 +1,24 @@
+#!/usr/bin/python3
+"""
+This is the "text indentation" module
+
+The text indentation module take in text string.
+"""
+
+
+def text_indentation(text):
+    """
+    Print a text with 2 new lines after these characters: . ? :
+    """
+
+    if not isinstance(text, str):
+        raise TypeError('text must be a string')
+
+    newline = True
+    for c in text:
+        if not (newline and c == ' '):
+            print(c, end='')
+            newline = False
+            if c in '.?:':
+                print('\n')
+                newline = True
