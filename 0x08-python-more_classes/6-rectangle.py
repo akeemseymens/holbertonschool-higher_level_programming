@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+
+
 class Rectangle:
     """Represents a rectangle."""
     number_of_instances = 0
@@ -7,6 +9,7 @@ class Rectangle:
         """Initialize the data."""
         self.__width = width
         self.__height = height
+        Rectangle.number_of_instances += 1
 
     def __str__(self):
         """Print the rectangle."""
@@ -20,7 +23,8 @@ class Rectangle:
 
     def __del__(self):
         """Delete a rectangle."""
-        print('Bye rectangle...')
+        Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
 
     @property
     def width(self):
