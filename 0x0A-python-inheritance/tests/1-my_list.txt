@@ -1,0 +1,64 @@
+he ``1-my_list`` module
+=============================
+
+Using ``MyList``
+----------------------
+
+This is an example text file in reStructuredText format.  First import ``MyList`` from the ``1-my_list`` module:
+
+    >>> MyList = __import__('1-my_list').MyList
+
+Now use it:
+
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
+
+
+    >>> a_list.print_sorted()
+    ['a']
+
+    >>> str_list = MyList('string')
+    >>> str_list.print_sorted()
+    ['g', 'i', 'n', 'r', 's', 't']
+
+    >>> my_list.append(1)
+    >>> my_list.append(4)
+    >>> my_list.append(2)
+    >>> my_list.append(3)
+    >>> my_list.append(5)
+    >>> my_list.print_sorted()
+    [1, 2, 3, 4, 5]
+>>> mylist = MyList()
+
+>>> print(mylist)
+[]
+
+>>> mylist.print_sorted()
+[]
+
+>>> mylist.append(10)
+
+>>> print(mylist)
+[10]
+
+>>> float_list = MyList(1.5)
+    Traceback (most recent call last):
+    	      ...
+    TypeError: 'float' object is not iterable
+
+    >>> inf_list = MyList(float('inf'))
+    Traceback (most recent call last):
+    	      ...
+    TypeError: 'float' object is not iterable
+
+    >>> nan_list = MyList(float('nan'))
+    Traceback (most recent call last):
+    	      ...
+    TypeError: 'float' object is not iterable
+
+    >>> my_list.append('a')
+    >>> my_list.print_sorted()
+    Traceback (most recent call last):
+    	      ...
+    TypeError: unorderable types: str() < int()
