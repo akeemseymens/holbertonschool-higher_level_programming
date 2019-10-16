@@ -5,6 +5,7 @@ area function is not implemented and raises an exception.
 
 """
 
+
 class BaseGeometry:
     """Represents a BaseGeometry."""
     def area(self):
