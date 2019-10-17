@@ -1,5 +1,5 @@
-#!/usr/bin/python
-"""pascl triangle function"""
+#!/usr/bin/python3
+"""pascal triangle function"""
 
 
 def printPascal(n):
