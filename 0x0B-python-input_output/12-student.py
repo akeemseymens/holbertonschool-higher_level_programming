@@ -14,10 +14,10 @@ class Student:
 
     def to_json(self, attrs=None):
         """Retrieve specified attributes of a Student."""
-        if not attrs or type(attrs) != list:
+        st_attr = {}
+        if attrs is None:
             return self.__dict__
-        my_attrs = {}
-        for key, value in self.__dict__.items():
-            if key in attrs and type(key) == str:
-                my_attrs[key] = value
-        return my_attrs
+        for key in attrs:
+            if key in self.__dict__.key():
+                st_attr[key] = value
+        return st_attr
