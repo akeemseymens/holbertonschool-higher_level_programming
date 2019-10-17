@@ -12,6 +12,6 @@ def pascal_triangle(n):
         pas = []
         for i in range(1, line + 1):
             pas.append(str(C))
-            C = C * (line - i) // i
+            C *= (line - i) // i
         arr.append(pas)
-        return arr
+    return arr
