@@ -1,10 +1,4 @@
 #!/usr/bin/python3
-"""
-This is the Student module.
-
-"""
-
-
 class Student:
     """Represents a Student."""
     def __init__(self, first_name, last_name, age):
@@ -18,6 +12,6 @@ class Student:
         if attrs is None:
             return self.__dict__
         for key in attrs:
-            if key in self.__dict__.key():
-                st_attr[key] = value
+            if key in self.__dict__.keys():
+                st_attr[key] = self.__dict__[key]
         return st_attr
