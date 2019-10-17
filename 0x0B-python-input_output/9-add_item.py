@@ -13,7 +13,7 @@ filename = "add_item.json"
 
 try:
     listn = load_json(filename)
-except:
+except FileNotFoundError:
     listn = []
 
 elements = len(sys.argv)
