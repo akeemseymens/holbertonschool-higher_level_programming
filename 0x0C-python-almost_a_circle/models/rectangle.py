@@ -6,6 +6,7 @@ from models.base import Base
 class Rectangle(Base):
     """Rectangle Class"""
     def __init__(self, width, height, x=0, y=0, id=None):
+        """Initialize rectangle"""
         super().__init__(id)
         self.width = width
         self.height = height
@@ -13,15 +14,18 @@ class Rectangle(Base):
         self.y = y
 
     def __str__(self):
+        """print out message"""
         s = '[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}'
         return s.format(self.id, self.x, self.y, self.width, self.height)
 
     @property
     def width(self):
+        """Setter for width"""
         return self.__width
 
     @width.setter
     def width(self, value):
+        """Getter for width"""
         if type(value) is not int:
             raise TypeError('width must be an integer')
         if value <= 0:
@@ -30,10 +34,12 @@ class Rectangle(Base):
 
     @property
     def height(self):
+        """Setter for height"""
         return self.__height
 
     @height.setter
     def height(self, value):
+        """Getter for height"""
         if type(value) is not int:
             raise TypeError('height must be an integer')
         if value <= 0:
@@ -42,10 +48,12 @@ class Rectangle(Base):
 
     @property
     def x(self):
+        """Setter for x"""
         return self.__x
 
     @x.setter
     def x(self, value):
+        """Getter for x"""
         if type(value) is not int:
             raise TypeError('x must be an integer')
         if value < 0:
@@ -54,10 +62,12 @@ class Rectangle(Base):
 
     @property
     def y(self):
+        """getter for y"""
         return self.__y
 
     @y.setter
     def y(self, value):
+        """setter for y"""
         if type(value) is not int:
             raise TypeError('y must be an integer')
         if value < 0:
@@ -72,7 +82,8 @@ class Rectangle(Base):
         """Print the Rectangle to stdout"""
         for _ in range(self.y):
             print('')
-        print(((' ' * self.x + '#' * self.width + '\n') * self.height).rstrip())
+        msg = ((' ' * self.x + '#' * self.width + '\n') * self.height).rstrip()
+        print(msg)
 
     def display(self):
         """Print in std the rectangle with the character '#'."""
@@ -83,7 +94,7 @@ class Rectangle(Base):
             print("#" * self.__width)
 
     def to_dictionary(self):
-        """dict repr of a Rectangle"""
+        """dict represetation of a Rectangle"""
         return {
             'id': self.id,
             'width': self.width,
