@@ -9,9 +9,14 @@ from io import StringIO
 
 class TestRectangle(unittest.TestCase):
     """Rectangle class test"""
+
     def setUp(self):
         """Resets nb_objects"""
         Base._Base__nb_objects = 0
+
+    def tearDown(self):
+        """Remove temporary files and directories"""
+        rmtree(getcwd(), ignore_errors=True)
 
     def test_init(self):
         """Test the `init` method"""
