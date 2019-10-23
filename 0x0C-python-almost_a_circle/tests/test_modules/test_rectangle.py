@@ -117,7 +117,6 @@ class TestRectangle(unittest.TestCase):
         r1 = Rectangle(2, 4)
         self.assertEqual(r1.area(), 8)
 
-
     def test_display(self):
         """Tests rectangle output"""
         output = StringIO()
@@ -135,6 +134,7 @@ class TestRectangle(unittest.TestCase):
         print(r1)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Rectangle] (13) 2/1 - 4/9\n"
+
     def test_height_type(self):
         """Test for setting height attr"""
         with self.assertRaises(TypeError):
