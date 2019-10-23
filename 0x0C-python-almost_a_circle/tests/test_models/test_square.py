@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Unittest for Square"""
+
 import unittest
 import sys
 from models.base import Base
@@ -10,6 +11,7 @@ from io import StringIO
 
 class TestSquare(unittest.TestCase):
     """Square class test"""
+
     def setUp(self):
         """Resets nb_objects"""
         Base._Base__nb_objects = 0
@@ -28,7 +30,7 @@ class TestSquare(unittest.TestCase):
 
     def test_all_param(self):
         """Passing all parameters"""
-        r1 = Square(1, 2, 3, 4)
+        r = Square(1, 2, 3, 4)
 
     def test_size_type(self):
         """Test for setting width attr"""
@@ -156,11 +158,11 @@ class TestSquare(unittest.TestCase):
         """update"""
         output = StringIO()
         sys.stdout = output
-        r1 = Square(10, 10, 10)
-        r1.update(89)
-        r1.update(89, 2)
-        r1.update(89, 2, 3)
-        r1.update(89, 2, 3, 4)
+        r = Square(10, 10, 10)
+        r.update(89)
+        r.update(89, 2)
+        r.update(89, 2, 3)
+        r.update(89, 2, 3, 4)
         print(r1)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Square] (89) 3/4 - 2\n"
@@ -169,8 +171,8 @@ class TestSquare(unittest.TestCase):
         """Update with extra parameters"""
         output = StringIO()
         sys.stdout = output
-        r1 = Square(10, 10, 10)
-        r1.update(89, 3, 4, 5, 6)
+        r = Square(10, 10, 10)
+        r.update(89, 3, 4, 5, 6)
         print(r1)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Square] (89) 4/5 - 3\n"
@@ -179,8 +181,8 @@ class TestSquare(unittest.TestCase):
         """Update with no parameters"""
         output = StringIO()
         sys.stdout = output
-        r1 = Square(10, 10, 10)
-        r1.update()
+        r = Square(10, 10, 10)
+        r.update()
         print(r1)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Square] (1) 10/10 - 10\n"
@@ -211,8 +213,8 @@ class TestSquare(unittest.TestCase):
 
     def test_to_dictionary(self):
         """to dictionary"""
-        s1 = Square(10, 2, 1)
-        s1_dictionary = s1.to_dictionary()
+        s = Square(10, 2, 1)
+        s_dictionary = s1.to_dictionary()
         self.assertEqual(s1_dictionary, {'id': 1, 'x': 2, 'size': 10, 'y': 1})
         self.assertTrue(type(s1_dictionary), dict)
 

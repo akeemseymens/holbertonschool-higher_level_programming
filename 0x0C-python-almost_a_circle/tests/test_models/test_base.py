@@ -12,6 +12,7 @@ from io import StringIO
 
 
 class TestBase(unittest.TestCase):
+    """Test Base class"""
     def setUp(self):
         """Set up Base class tests."""
         Base._Base__nb_objects = 0
