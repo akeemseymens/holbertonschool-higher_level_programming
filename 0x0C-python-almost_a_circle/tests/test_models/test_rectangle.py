@@ -2,6 +2,7 @@
 """Unittest for Rectangle"""
 import unittest
 import sys
+import contextlib
 from models.base import Base
 from models.rectangle import Rectangle
 from io import StringIO
@@ -16,7 +17,7 @@ class TestRectangle(unittest.TestCase):
 
     def tearDown(self):
         """Remove temporary files and directories"""
-        rmtree(getcwd(), ignore_errors=True)
+        pass
 
     def test_init(self):
         """Test the `init` method"""
@@ -39,14 +40,8 @@ class TestRectangle(unittest.TestCase):
         with self.assertRaises(TypeError):
             r = Rectangle(4)
 
-    def test_all_param(self):
-        """Passing all parameters"""
-        r = Rectangle(1, 2, 3, 4, 5)
-
     def test_string(self):
         """Passing string"""
-        s = '[Rectangle] (1) 1/1 - 1/1'
-        self.assertEqual(str(self.r), s)
         r = Rectangle(1, 1, id=1)
         self.assertEqual(str(r), '[Rectangle] (1) 0/0 - 1/1')
         with self.assertRaises(TypeError):
@@ -131,9 +126,9 @@ class TestRectangle(unittest.TestCase):
         output = StringIO()
         sys.stdout = output
         r = Rectangle(4, 9, 2, 1, 13)
-        print(r1)
+        print(r)
         sys.stdout = sys.__stdout__
-        assert output.getvalue() == "[Rectangle] (13) 2/1 - 4/9\n"
+        self.assertEqual(output.getvalue(), "[Rectangle] (13) 2/1 - 4/9\n")
 
     def test_height_type(self):
         """Test for setting height attr"""
@@ -167,7 +162,7 @@ class TestRectangle(unittest.TestCase):
         r.display()
         self.assertEqual(self.out.getvalue(), '\n #\n')
         sys.stdout = sys.__stdout__
-        assert output.getvalue() == " ###\n ###\n"
+        self.assertEqual(output.getvalue(), " ###\n ###\n")
 
     def test_update(self):
         """Test update"""
@@ -179,7 +174,7 @@ class TestRectangle(unittest.TestCase):
         r.update(89, 2, 3)
         r.update(89, 2, 3, 4)
         r.update(89, 2, 3, 4, 5)
-        print(r1)
+        print(r)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Rectangle] (89) 4/5 - 2/3\n"
 
@@ -188,7 +183,7 @@ class TestRectangle(unittest.TestCase):
         output = StringIO()
         sys.stdout = output
         r1 = Rectangle(10, 10, 10, 10)
-        r1.update(89, 2, 3, 4, 5, 6, 7)
+        r1.update(89, 2, 3, 4, 5)
         print(r1)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Rectangle] (89) 4/5 - 2/3\n"
@@ -199,7 +194,7 @@ class TestRectangle(unittest.TestCase):
         sys.stdout = output
         r = Rectangle(10, 10, 10, 10)
         r.update()
-        print(r1)
+        print(r)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Rectangle] (1) 10/10 - 10/10\n"
 
@@ -207,10 +202,10 @@ class TestRectangle(unittest.TestCase):
         """Test kwargs"""
         output = StringIO()
         sys.stdout = output
-        r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual((r.id, r.x, r.y, r.width, r.height), (2, 3, 4, 5, 6))
-        r1.update(x=1, height=2, y=3, width=4)
-        print(r1)
+        r = Rectangle(10, 10, 10, 10)
+        self.assertEqual((r.id, r.x, r.y, r.width, r.height), (1, 10, 10, 10, 10))
+        r.update(x=1, height=2, y=3, width=4)
+        print(r)
         sys.stdout = sys.__stdout__
         assert output.getvalue() == "[Rectangle] (1) 1/3 - 4/2\n"
 
