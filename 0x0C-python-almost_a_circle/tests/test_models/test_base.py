@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """Test for Base class"""
 import unittest
-import models import base
-import models.base import Base
+from models import base
+from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
+import contextlib
 import os
 import unittest
 import sys
@@ -38,11 +39,6 @@ class TestBase(unittest.TestCase):
         self.assertEqual(b3.id, 3)
         self.assertEqual(b4.id, 12)
         self.assertEqual(b5.id, 4)
-
-    def test_base_id(self):
-        """Test the __init__ method"""
-        self.assertIsInstance(self.base.id, int)
-        self.assertGreater(self.base.id, 0)
 
     def test_init_type(self):
         """Test the __init__ method"""
