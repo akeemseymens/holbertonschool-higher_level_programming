@@ -5,3 +5,8 @@ a.out
 *.pyc
 *main*
 *.mssql
+0x0F-python-object_relational_mapping/0-select_states.sql
+0x0F-python-object_relational_mapping/4-cities_by_state.sql
+0x0F-python-object_relational_mapping/6-model_state.sql
+0x0F-python-object_relational_mapping/7-model_state_fetch_all.sql
+0x0F-python-object_relational_mapping/14-model_city_fetch_by_state.sql
