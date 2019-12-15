@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-script that lists all State objects from the database
+script that State object with the name passed as argument
 """
 from sys import argv
 from model_state import Base, State
@@ -16,8 +16,8 @@ if __name__ == "__main__":
         Session = sessionmaker(bind=engine)
         session = Session()
         state = session.query(State).filter(State.name == argv[4]).first()
-        if state:x
-                print(state.id)
+        if state:
+                print("{}".format(state.id))
         else:
                 print("Not Found")
         session.close()
