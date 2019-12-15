@@ -3,7 +3,12 @@
 import MySQLdb
 from sys import argv
 
+<<<<<<< HEAD
 
+=======
+db = MySQLdb.connect(host="localhost", port=3360, user=argv[1], passwd=argv[2],
+                    db=argv[3], charset="utf8")
+>>>>>>> ac232a94564604d24fc7c17c5fb45f9621392988
 if __name__ == "__main__":
 
         db = MySQLdb.connect(host="localhost", port=3306, user=argv[1], passwd=arg[2], 
