@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """Use the Github API to list the 10 most recent commits"""
 
-
 if __name__ == '__main__':
     import requests
     from sys import argv
